@@ -14,8 +14,12 @@ class AuthorizeApiRequest
   private
 
   def user
-    @user ||= Account.find(decoded_auth_token[:account_id]) if decoded_auth_token
-    @user ||= (errors << { token: 'Invalid token' } ) && nil
+    @user ||= account_from_decoded_auth_token if decoded_auth_token
+    @user ||= (errors << { token: 'Invalid token' }) && nil
+  end
+
+  def account_from_decoded_auth_token
+    Account.find(decoded_auth_token[:account_id])
   end
 
   def decoded_auth_token
@@ -24,7 +28,7 @@ class AuthorizeApiRequest
 
   def http_auth_header
     return auth_headers if headers['Authorization'].present?
-    ( errors << { token: 'Missing token' } ) && return
+    (errors << { token: 'Missing token' }) && return
   end
 
   def auth_headers
