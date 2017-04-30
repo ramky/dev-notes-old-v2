@@ -20,6 +20,8 @@ gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
 
+gem 'simplecov', require: false, group: :test
+
 group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
