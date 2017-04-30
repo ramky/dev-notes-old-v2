@@ -1,9 +1,8 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort_with_message if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
-
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -23,4 +22,8 @@ Shoulda::Matchers.configure do |config|
 
     with.library :rails
   end
+end
+
+def abort_with_message
+  abort('The Rails environment is running in production mode!')
 end

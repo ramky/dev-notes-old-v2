@@ -1,0 +1,12 @@
+AllCops:
+  Include:
+    - lib/**/*.rake
+  Exclude:
+    - db/schema.rb
+    - config/**/*.rb
+    - Gemfile
+    - Rakefile
+    - bin/*
+    - db/**/*.rb
+Documentation:
+  Enabled: false
