@@ -8,14 +8,14 @@ class AuthorizeApiRequest
   end
 
   def call
-    user
+    account
   end
 
   private
 
-  def user
-    @user ||= account_from_decoded_auth_token if decoded_auth_token
-    @user ||= (errors << { token: 'Invalid token' }) && nil
+  def account
+    @account ||= account_from_decoded_auth_token if decoded_auth_token
+    @account ||= (errors << { token: 'Invalid token' }) && nil
   end
 
   def account_from_decoded_auth_token

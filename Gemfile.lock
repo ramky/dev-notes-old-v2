@@ -227,6 +227,7 @@ DEPENDENCIES
   pg (~> 0.18)
   pry-byebug
   puma (~> 3.0)
+  rack-test
   rails (~> 5.0.2)
   rspec-rails
   rubocop
