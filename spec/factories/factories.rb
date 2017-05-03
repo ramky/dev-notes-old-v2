@@ -5,4 +5,9 @@ FactoryGirl.define do
     password              '1234'
     password_confirmation '1234'
   end
+
+  factory :topic do
+    name               Faker::Lorem.words(4).join(' ')
+    description        Faker::Lorem.sentences(1).join(' ')
+  end
 end
